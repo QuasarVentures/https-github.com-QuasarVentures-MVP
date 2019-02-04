@@ -1,2 +1,3 @@
-# MVP
-Sample app
+# Quasar Risk Advisors
+
+> WIP
