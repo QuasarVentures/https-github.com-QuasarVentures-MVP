@@ -1,7 +1,7 @@
 <script>
 export default {
-  name: 'page-error-404',
-};
+  name: 'page-error-404'
+}
 </script>
 
 <template lang="pug">

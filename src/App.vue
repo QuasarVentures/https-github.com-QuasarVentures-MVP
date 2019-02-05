@@ -1,13 +1,12 @@
-<template>
-  <div id="q-app">
-    <router-view />
-  </div>
+<template lang="pug">
+  #q-app
+    router-view
 </template>
 
 <script>
 export default {
-  name: 'App',
-};
+  name: 'App'
+}
 </script>
 
 <style>
