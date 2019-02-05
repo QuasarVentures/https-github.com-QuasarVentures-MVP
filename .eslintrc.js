@@ -14,37 +14,38 @@ module.exports = {
   // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
 extends: [
     'plugin:vue/essential',
-    'airbnb-base'
+    'standard'
   ],
 
-          // required to lint *.vue files
-          plugins: [
-            'vue'
-          ],
+  // required to lint *.vue files
+  plugins: [
+    'vue'
+  ],
 
-            globals: {
-            'ga': true, // Google Analytics
-              'cordova': true,
-              '__statics': true
-          },
+  globals: {
+    'ga': true, // Google Analytics
+    'cordova': true,
+    '__statics': true
+  },
 
-          // add your custom rules here
-          rules: {
-              'no-param-reassign': 'off',
-                'prefer-promise-reject-errors': 'off',
+  // add your custom rules here
+  rules: {
+    'generator-star-spacing': 0,
 
-                  'import/first': 'off',
-                  'import/named': 'error',
-                  'import/namespace': 'error',
-                  'import/default': 'error',
-                  'import/export': 'error',
-                  'import/extensions': 'off',
-                  'import/no-unresolved': 'off',
-                  'import/no-extraneous-dependencies': 'off',
-
-                  // allow console.log during development only
-                  'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-                  // allow debugger during development only
-                  'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-              }
-            }
+    // allow paren-less arrow functions
+    'arrow-parens': 0,
+    'one-var': 0,
+    // trailing spaces are the most annoying rule in the world.
+    'no-trailing-spaces': 0,
+    'semi': 0,
+    'import/first': 0,
+    'import/named': 2,
+    'import/namespace': 2,
+    'import/default': 2,
+    'import/export': 2,
+    'import/extensions': 0,
+    'import/no-unresolved': 0,
+    'import/no-extraneous-dependencies': 0,
+    'import/no-webpack-loader-syntax': 0,
+  }
+}
