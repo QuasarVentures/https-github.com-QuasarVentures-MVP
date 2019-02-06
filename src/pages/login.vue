@@ -1,7 +1,11 @@
 <script>
 import { isEmail } from 'validator'
+import Password from 'src/mixins/password'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'page-login',
+  mixins: [Password],
   data () {
     return {
       loginForm: {
@@ -20,12 +24,32 @@ export default {
     }
   },
   methods: {
-    submit () {
+    ...mapActions('user', ['setUser']),
+    async submit () {
       this.submitting = true
       Object.keys(this.validations).forEach((key) => this.$refs[key].validate())
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
-        // TODO login with pouchDB
+        try {
+          const user = await this.$userdb.get(this.loginForm.email)
+          if (user) {
+            if (await this.verify(this.loginForm.password, user.passwordHash)) {
+              this.setUser({
+                role: user.role,
+                email: user.email,
+                address: user.address,
+                city: user.city,
+                zipCode: user.zipCode,
+                phone: user.phone
+              })
+              this.$router.push({ path: '/dashboard' })
+            }
+          } else {
+            // TODO set error
+          }
+        } catch (e) {
+          console.log(e)
+        }
       }
       this.submitting = false
     }
@@ -64,6 +88,7 @@ q-page.flex.flex-center
         color="primary"
         :label="$t('login.loginForm.login.label')"
         @click.native="submit"
+        :loading="submitting"
       )
     q-separator
     q-card-section

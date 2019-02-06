@@ -19,6 +19,12 @@ export default {
       register: {
         label: 'Register'
       },
+      role: 'Account type',
+      roles: {
+        admin: 'Admin',
+        manager: 'Manager',
+        freelancer: 'Freelancer'
+      },
       termsAgreement: 'I agree to the terms and services',
       zipCode: 'Zip code'
     },

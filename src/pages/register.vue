@@ -1,10 +1,20 @@
 <script>
+import Password from 'src/mixins/password'
 import { isEmail, isLength } from 'validator'
+import { mapActions } from 'vuex'
+
 export default {
   name: 'page-register',
+  mixins: [Password],
   data () {
     return {
+      roleOptions: [
+        { value: 'admin', label: this.$t('register.registerForm.roles.admin') },
+        { value: 'manager', label: this.$t('register.registerForm.roles.manager') },
+        { value: 'freelancer', label: this.$t('register.registerForm.roles.freelancer') }
+      ],
       registerForm: {
+        role: null,
         email: null,
         password: null,
         address: null,
@@ -14,9 +24,11 @@ export default {
         termsAgreement: false
       },
       validations: {
+        role: [val => !!val || this.$t('validations.errors.required')],
         email: [
           val => !!val || this.$t('validations.errors.required'),
           val => isEmail(val) || this.$t('validations.errors.email')
+          // TODO database existence validation
         ],
         password: [
           val => !!val || this.$t('validations.errors.required'),
@@ -34,12 +46,20 @@ export default {
     }
   },
   methods: {
-    submit () {
+    ...mapActions('user', ['setUser']),
+    async submit () {
       this.submitting = true
       Object.keys(this.validations).forEach((key) => this.$refs[key].validate())
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
-        // TODO save to pouchBD
+        const { password, termsAgreement, ...user } = this.registerForm
+        this.$userdb.put({
+          _id: user.email,
+          passwordHash: await this.encrypt(password),
+          ...user
+        })
+        this.setUser(user)
+        this.$router.push({ path: '/dashboard' })
       }
       this.submitting = false
     }
@@ -51,6 +71,14 @@ export default {
 q-page.flex.flex-center
   q-card.register-form
     q-card-section
+      q-select(
+        ref="role"
+        v-model="registerForm.role",
+        :options="roleOptions"
+        :label="$t('register.registerForm.role')"
+        :rules="validations.role"
+        lazy-rules
+      )
       q-input(
         ref="email"
         v-model="registerForm.email"

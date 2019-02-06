@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import example from './example'
+import user from './user'
 
 const modules = {
-  example
+  user
 }
 
 Vue.use(Vuex)
