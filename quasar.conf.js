@@ -6,7 +6,8 @@ module.exports = function (ctx) {
     // --> boot files are part of "main.js"
     boot: [
       'i18n',
-      'vuelidate'
+      { path: 'pouchdb', server: false },
+      { path: 'pouchdb-populate', server: false }
     ],
 
     css: [
@@ -62,6 +63,7 @@ module.exports = function (ctx) {
         'QCard',
         'QCardSection',
         'QCardActions',
+        'QCheckbox',
         'QDrawer',
         'QHeader',
         'QIcon',
@@ -73,6 +75,7 @@ module.exports = function (ctx) {
         'QList',
         'QPage',
         'QPageContainer',
+        'QSelect',
         'QSeparator',
         'QToolbar',
         'QToolbarTitle'

@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0-alpha.0",
-    "quasar": "^1.0.0-alpha.0"
+    "quasar": "^1.0.0-alpha.23"
   },
   "devDependencies": {
     "@quasar/app": "^1.0.0-alpha.0",
@@ -24,11 +24,12 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0",
     "node-fetch": "^2.3.0",
+    "pouchdb": "^7.0.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
     "strip-ansi": "=3.0.1",
+    "validator": "^10.11.0",
     "vue-i18n": "^7.3.3",
-    "vuelidate": "^0.7.4",
     "vuex": "^3.1.0"
   },
   "engines": {

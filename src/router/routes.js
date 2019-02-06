@@ -5,7 +5,8 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/login.vue') },
       { path: '/login', component: () => import('pages/login.vue') },
-      { path: '/register', component: () => import('pages/register.vue') }
+      { path: '/register', component: () => import('pages/register.vue') },
+      { path: '/dashboard', component: () => import('pages/dashboard.vue') }
     ]
   }
 ]
