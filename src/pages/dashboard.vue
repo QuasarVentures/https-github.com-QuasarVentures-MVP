@@ -11,7 +11,7 @@ export default {
 <template lang="pug">
 q-page.flex.flex-center.column
   h3 Welcome
-  h4 {{user.email}}
+  h4 {{user && user.email}}
 </template>
 
 <style lang="stylus">

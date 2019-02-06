@@ -1,4 +1,10 @@
 export default {
+  layout: {
+    menu: {
+      gigs: 'GIGs',
+      profile: 'Profile'
+    }
+  },
   login: {
     loginForm: {
       email: 'Email',
