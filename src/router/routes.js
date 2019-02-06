@@ -5,8 +5,18 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/login.vue') },
       { path: '/login', component: () => import('pages/login.vue') },
-      { path: '/register', component: () => import('pages/register.vue') },
-      { path: '/dashboard', component: () => import('pages/dashboard.vue') }
+      { path: '/register', component: () => import('pages/register.vue') }
+    ]
+  },
+  {
+    path: '/',
+    component: () => import('layouts/AuthLayout.vue'),
+    meta: { auth: true },
+    children: [
+      {
+        path: '/dashboard',
+        component: () => import('pages/dashboard.vue')
+      }
     ]
   }
 ]
