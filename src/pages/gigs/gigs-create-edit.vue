@@ -76,6 +76,7 @@ q-page.flex.flex-center.column
         stack-label
         :label="$t('gigs.createEdit.form.code')"
         :options="[{value: '0110-Wheat', label: '0110 Wheat'}]"
+        emit-value
         :rules="validations.code"
         lazy-rules
       )
@@ -115,6 +116,7 @@ q-page.flex.flex-center.column
         stack-label
         :label="$t('gigs.createEdit.form.state')"
         :options="[{value: 'CA', label: 'California'}, { value: 'TX', label: 'Texas'}]"
+        emit-value
         :rules="validations.state"
         lazy-rules
       )

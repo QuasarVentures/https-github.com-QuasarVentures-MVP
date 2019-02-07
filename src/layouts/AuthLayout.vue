@@ -15,6 +15,13 @@ export default {
       q-toolbar
         q-toolbar-title MVP
         q-btn(
+          v-if="user.role === 'admin'"
+          :to="{ path: '/stats' }"
+          :label="$t('layout.menu.stats')"
+          icon="work"
+          flat
+        )
+        q-btn(
           v-if="user.role === 'manager'"
           :to="{ path: '/gigs' }"
           :label="$t('layout.menu.gigs')"

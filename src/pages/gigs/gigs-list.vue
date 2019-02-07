@@ -18,7 +18,7 @@ export default {
   async mounted () {
     this.gigs = (await this.$gigsdb.allDocs({
       include_docs: true
-    })).rows.map(r => r.doc)
+    })).rows.filter(r => !r.doc.views).map(r => r.doc)
   },
   methods: {
     async deleteGig (id, rev) {
@@ -45,11 +45,11 @@ q-page.q-ma-md.flex.column.items-end
     :rows-per-page-options="[10, 20, 50]"
   )
     q-tr(slot="body", slot-scope="props", :props="props")
-      q-td(key="code", :props="props") {{ props.row.code.label }}
+      q-td(key="code", :props="props") {{ props.row.code }}
       q-td(key="startDate", :props="props") {{ props.row.startDate }}
       q-td(key="endDate", :props="props") {{ props.row.endDate }}
       q-td(key="address", :props="props") {{ props.row.address }}
-      q-td(key="state", :props="props") {{ props.row.state.label }}
+      q-td(key="state", :props="props") {{ props.row.state }}
       q-td(key="payment", :props="props") {{ props.row.payment }}
       q-td(key="actions", :props="props")
         q-btn(
