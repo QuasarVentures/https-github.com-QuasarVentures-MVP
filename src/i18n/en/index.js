@@ -1,4 +1,22 @@
 export default {
+  gigs: {
+    createEdit: {
+      form: {
+        address: 'Address',
+        code: 'Code',
+        endDate: 'End date',
+        payment: 'Payment',
+        startDate: 'Start date',
+        state: 'State'
+      },
+      title: {
+        create: 'Create a new gig',
+        edit: 'Edit a gig'
+      },
+      save: 'Save',
+      update: 'Update'
+    }
+  },
   layout: {
     menu: {
       gigs: 'GIGs',

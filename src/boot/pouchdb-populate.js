@@ -1,7 +1,7 @@
 export default async ({ Vue }) => {
-  const db = Vue.prototype.$userdb
+  const usersdb = Vue.prototype.$usersdb
   try {
-    await db.bulkDocs([
+    await usersdb.bulkDocs([
       {
         _id: 'admin@email.com',
         role: 'admin',
@@ -31,6 +31,23 @@ export default async ({ Vue }) => {
         city: 'Galveston',
         zipCode: '77550',
         phone: '409-772-7782'
+      }
+    ])
+  } catch (e) {
+    console.log(e)
+  }
+
+  const gigsdb = Vue.prototype.$gigsdb
+  try {
+    await gigsdb.bulkDocs([
+      {
+        _id: '7c59f9a3-3b3b-49c0-bdf6-5ecaac06480d',
+        code: '0110-Wheat',
+        startDate: '',
+        endDate: '',
+        address: '',
+        state: '',
+        payment: ''
       }
     ])
   } catch (e) {

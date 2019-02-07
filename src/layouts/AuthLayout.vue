@@ -46,6 +46,7 @@ export default {
             v-if="user.role === 'manager'"
             clickable
             v-ripple
+            :to="{ path: '/gigs' }"
           )
             q-item-section(avatar)
               q-icon(name="work")

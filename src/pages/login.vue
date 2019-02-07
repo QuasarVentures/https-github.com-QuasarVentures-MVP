@@ -31,7 +31,7 @@ export default {
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
         try {
-          const user = await this.$userdb.get(this.loginForm.email)
+          const user = await this.$usersdb.get(this.loginForm.email)
           if (user) {
             if (await this.verify(this.loginForm.password, user.passwordHash)) {
               this.setUser({
