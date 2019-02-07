@@ -20,6 +20,7 @@ export default {
         address: null,
         city: null,
         zipCode: null,
+        state: null,
         phone: null,
         termsAgreement: false
       },
@@ -38,6 +39,7 @@ export default {
         address: [val => !!val || this.$t('validations.errors.required')],
         city: [val => !!val || this.$t('validations.errors.required')],
         zipCode: [val => !!val || this.$t('validations.errors.required')],
+        state: [val => !!val || this.$t('validations.errors.required')],
         phone: [val => !!val || this.$t('validations.errors.required')]
         // termsAgreement: [val => val || this.$t('validations.errors.terms')]
       },
@@ -77,6 +79,7 @@ q-page.flex.flex-center
         :options="roleOptions"
         :label="$t('register.registerForm.role')"
         :rules="validations.role"
+        emit-value
         lazy-rules
       )
       q-input(
@@ -128,6 +131,16 @@ q-page.flex.flex-center
             :rules="validations.zipCode"
             lazy-rules
           )
+      q-select(
+        ref="state"
+        v-model="registerForm.state",
+        stack-label
+        :label="$t('register.registerForm.state')"
+        :options="[{value: 'CA', label: 'California'}, { value: 'TX', label: 'Texas'}]"
+        emit-value
+        :rules="validations.state"
+        lazy-rules
+      )
       q-input(
         ref="phone"
         v-model="registerForm.phone"

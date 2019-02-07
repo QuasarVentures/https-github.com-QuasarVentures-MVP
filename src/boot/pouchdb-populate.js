@@ -30,6 +30,7 @@ export default async ({ Vue }) => {
         address: '569 Lynn Ogden Lane',
         city: 'Galveston',
         zipCode: '77550',
+        state: 'CA',
         phone: '409-772-7782'
       }
     ])
@@ -42,11 +43,11 @@ export default async ({ Vue }) => {
     await gigsdb.bulkDocs([
       {
         _id: '7c59f9a3-3b3b-49c0-bdf6-5ecaac06480d',
-        code: { value: '0110-Wheat', label: '0110 Wheat' },
+        code: '0110-Wheat',
         startDate: '2019-01-01',
         endDate: '2019-01-31',
         address: '569 Lynn Ogden Lane, Galveston 77550',
-        state: { value: 'CA', label: 'California' },
+        state: 'CA',
         payment: '50 USD'
       }
     ])

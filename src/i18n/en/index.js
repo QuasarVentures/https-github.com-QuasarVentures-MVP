@@ -32,7 +32,7 @@ export default {
   layout: {
     menu: {
       gigs: 'GIGs',
-      profile: 'Profile'
+      stats: 'Stats'
     }
   },
   login: {
@@ -65,6 +65,10 @@ export default {
       zipCode: 'Zip code'
     },
     loginLink: 'I already have an account.'
+  },
+  stats: {
+    gigs: 'GIGs',
+    workers: 'Workers'
   },
   validations: {
     errors: {
