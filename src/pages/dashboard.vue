@@ -31,11 +31,11 @@ export default {
           zip: 12345,
           relationship: 'Wife'
         },
-        CED: '',
-        DIED: '',
-        CN: '',
-        leasedTo: '',
-        locationNumber: ''
+        CED: '01/01/2019',
+        DIED: '01/02/2019',
+        CN: 'TEMP01',
+        leasedTo: 'Leased to data',
+        locationNumber: '123'
       }
     }
   },
@@ -58,6 +58,6 @@ q-page.flex.flex-center.column
 
 <style lang="stylus">
 div.pdf-container
-  width 100%
-  height 800px
+  width 100vw
+  height 100vh
 </style>
