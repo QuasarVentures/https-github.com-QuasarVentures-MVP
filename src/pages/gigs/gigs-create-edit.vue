@@ -63,6 +63,7 @@ q-page.flex.flex-center.column
       q-select(
         ref="code"
         v-model="gigForm.code",
+        stack-label
         :label="$t('gigs.createEdit.form.code')"
         :options="[{value: '0110-Wheat', label: '0110 Wheat'}]"
         :rules="validations.code"
@@ -73,6 +74,7 @@ q-page.flex.flex-center.column
           q-input(
             ref="startDate"
             v-model="gigForm.startDate"
+            stack-label
             :label="$t('gigs.createEdit.form.startDate')"
             type="date"
             :rules="validations.address"
@@ -82,6 +84,7 @@ q-page.flex.flex-center.column
           q-input(
             ref="endDate"
             v-model="gigForm.endDate"
+            stack-label
             :label="$t('gigs.createEdit.form.endDate')"
             type="date"
             :rules="validations.address"
@@ -90,6 +93,7 @@ q-page.flex.flex-center.column
       q-input(
         ref="address"
         v-model="gigForm.address"
+        stack-label
         :label="$t('gigs.createEdit.form.address')"
         autogrow
         :rules="validations.address"
@@ -98,6 +102,7 @@ q-page.flex.flex-center.column
       q-select(
         ref="state"
         v-model="gigForm.state",
+        stack-label
         :label="$t('gigs.createEdit.form.state')"
         :options="[{value: 'CA', label: 'California'}, { value: 'TX', label: 'Texas'}]"
         :rules="validations.state"
@@ -106,6 +111,7 @@ q-page.flex.flex-center.column
       q-input(
         ref="payment"
         v-model="gigForm.payment"
+        stack-label
         :label="$t('gigs.createEdit.form.payment')"
         :rules="validations.payment"
         lazy-rules

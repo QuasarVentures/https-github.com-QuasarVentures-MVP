@@ -65,6 +65,7 @@ q-page.flex.flex-center
         ref="email"
         v-model="loginForm.email"
         type="email"
+        stack-label
         :label="$t('login.loginForm.email')"
         :rules="validations.email"
         lazy-rules
@@ -73,6 +74,7 @@ q-page.flex.flex-center
         ref="password"
         v-model="loginForm.password"
         :type="isPwd ? 'password' : 'text'"
+        stack-label
         :label="$t('login.loginForm.password')"
         :rules="validations.password"
         lazy-rules
