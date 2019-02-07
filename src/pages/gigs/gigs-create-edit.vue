@@ -1,4 +1,6 @@
 <script>
+import { isAfter } from 'validator'
+
 export default {
   name: 'gigs-create-edit',
   data () {
@@ -15,7 +17,10 @@ export default {
       validations: {
         address: [val => !!val || this.$t('validations.errors.required')],
         code: [val => !!val || this.$t('validations.errors.required')],
-        endDate: [val => !!val || this.$t('validations.errors.required')],
+        endDate: [
+          val => !!val || this.$t('validations.errors.required'),
+          val => isAfter(val, this.gigForm.startDate) || this.$t('validations.errors.dateAfter', { before: this.$t('gigs.createEdit.form.startDate'), after: this.$t('gigs.createEdit.form.endDate') })
+        ],
         payment: [val => !!val || this.$t('validations.errors.required')],
         startDate: [val => !!val || this.$t('validations.errors.required')],
         state: [val => !!val || this.$t('validations.errors.required')]
@@ -38,15 +43,20 @@ export default {
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
         const { _id, ...gig } = this.gigForm
+        let result
         if (!_id) {
-          await this.$gigsdb.post(gig)
+          result = await this.$gigsdb.post(gig)
         } else {
           const obj = await this.$gigsdb.get(_id)
-          await this.$gigsdb.put({
+          result = await this.$gigsdb.put({
             _id,
             _rev: obj._rev,
             ...gig
           })
+        }
+        if (result.ok) {
+          this.gigForm._id = result.id
+          this.gigForm._rev = result.rev
         }
       }
       this.submitting = false
@@ -77,7 +87,7 @@ q-page.flex.flex-center.column
             stack-label
             :label="$t('gigs.createEdit.form.startDate')"
             type="date"
-            :rules="validations.address"
+            :rules="validations.startDate"
             lazy-rules
           )
         .col-md-6
@@ -87,7 +97,7 @@ q-page.flex.flex-center.column
             stack-label
             :label="$t('gigs.createEdit.form.endDate')"
             type="date"
-            :rules="validations.address"
+            :rules="validations.endDate"
             lazy-rules
           )
       q-input(
