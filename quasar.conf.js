@@ -80,6 +80,10 @@ module.exports = function (ctx) {
         'QScrollArea',
         'QSelect',
         'QSeparator',
+        'QTable',
+        'QTd',
+        'QTh',
+        'QTr',
         'QToolbar',
         'QToolbarTitle'
       ],

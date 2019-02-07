@@ -15,6 +15,18 @@ export default {
       },
       save: 'Save',
       update: 'Update'
+    },
+    list: {
+      new: 'New Gig',
+      table: {
+        code: 'Code',
+        startDate: 'Start date',
+        endDate: 'End date',
+        address: 'Address',
+        state: 'State',
+        payment: 'Payment'
+      },
+      title: 'Gigs'
     }
   },
   layout: {

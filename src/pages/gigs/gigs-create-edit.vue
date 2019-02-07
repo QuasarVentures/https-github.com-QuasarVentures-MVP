@@ -23,16 +23,15 @@ export default {
       submitting: false
     }
   },
-  methods: {
-    async mounted () {
-      if (this.$router.params.id) {
-        const obj = await this.$gigsdb.get(this.$router.params.id)
-        if (obj) {
-          console.log(obj)
-          this.gigForm = obj
-        }
+  async mounted () {
+    if (this.$route.params.id) {
+      const obj = await this.$gigsdb.get(this.$route.params.id)
+      if (obj) {
+        this.gigForm = obj
       }
-    },
+    }
+  },
+  methods: {
     async submit () {
       this.submitting = true
       Object.keys(this.validations).forEach((key) => this.$refs[key].validate())
@@ -58,7 +57,7 @@ export default {
 
 <template lang="pug">
 q-page.flex.flex-center.column
-  h4 {{$t('gigs.createEdit.title.create')}}
+  h4 {{$t(`gigs.createEdit.title.${gigForm._id === null ? 'create' : 'edit'}`)}}
   q-card.gig-form
     q-card-section
       q-select(
@@ -114,7 +113,7 @@ q-page.flex.flex-center.column
     q-card-actions
       q-btn.full-width(
         color="primary"
-        :label="$t('gigs.createEdit.save')"
+        :label="$t(`gigs.createEdit.${gigForm._id === null ? 'save' : 'update'}`)"
         @click.native="submit"
         :loading="submitting"
       )

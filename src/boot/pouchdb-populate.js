@@ -42,12 +42,12 @@ export default async ({ Vue }) => {
     await gigsdb.bulkDocs([
       {
         _id: '7c59f9a3-3b3b-49c0-bdf6-5ecaac06480d',
-        code: '0110-Wheat',
-        startDate: '',
-        endDate: '',
-        address: '',
-        state: '',
-        payment: ''
+        code: { value: '0110-Wheat', label: '0110 Wheat' },
+        startDate: '2019-01-01',
+        endDate: '2019-01-31',
+        address: '569 Lynn Ogden Lane, Galveston 77550',
+        state: { value: 'CA', label: 'California' },
+        payment: '50 USD'
       }
     ])
   } catch (e) {
