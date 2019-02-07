@@ -31,7 +31,7 @@ export default {
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
         try {
-          const user = await this.$userdb.get(this.loginForm.email)
+          const user = await this.$usersdb.get(this.loginForm.email)
           if (user) {
             if (await this.verify(this.loginForm.password, user.passwordHash)) {
               this.setUser({
@@ -65,6 +65,7 @@ q-page.flex.flex-center
         ref="email"
         v-model="loginForm.email"
         type="email"
+        stack-label
         :label="$t('login.loginForm.email')"
         :rules="validations.email"
         lazy-rules
@@ -73,6 +74,7 @@ q-page.flex.flex-center
         ref="password"
         v-model="loginForm.password"
         :type="isPwd ? 'password' : 'text'"
+        stack-label
         :label="$t('login.loginForm.password')"
         :rules="validations.password"
         lazy-rules

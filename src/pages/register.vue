@@ -53,7 +53,7 @@ export default {
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
         const { password, termsAgreement, ...user } = this.registerForm
-        this.$userdb.put({
+        this.$usersdb.put({
           _id: user.email,
           passwordHash: await this.encrypt(password),
           ...user

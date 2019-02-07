@@ -16,6 +16,18 @@ const routes = [
       {
         path: '/dashboard',
         component: () => import('pages/dashboard.vue')
+      },
+      {
+        path: '/gigs',
+        component: () => import('pages/gigs/gigs-list.vue')
+      },
+      {
+        path: '/gigs/create',
+        component: () => import('pages/gigs/gigs-create-edit.vue')
+      },
+      {
+        path: '/gigs/:id/edit',
+        component: () => import('pages/gigs/gigs-create-edit.vue')
       }
     ]
   }
