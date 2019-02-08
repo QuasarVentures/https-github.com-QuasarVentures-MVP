@@ -31,7 +31,12 @@ export default {
         startDate: [val => !!val || this.$t('validations.errors.required')],
         state: [val => !!val || this.$t('validations.errors.required')]
       },
-      submitting: false
+      submitting: false,
+      industryOptions: [
+        { value: '3724', label: this.$t('gigs.industry.3724') },
+        { value: '7380', label: this.$t('gigs.industry.7380') },
+        { value: '5190', label: this.$t('gigs.industry.5190') }
+      ]
     }
   },
   async mounted () {
@@ -76,12 +81,14 @@ q-page.flex.flex-center.column
   h4 {{$t(`gigs.createEdit.title.${gigForm._id === null ? 'create' : 'edit'}`)}}
   q-card.gig-form
     q-card-section
-      q-input(
+      q-select(
         ref="industry"
-        v-model="gigForm.industry"
+        v-model="gigForm.industry",
         stack-label
         :label="$t('gigs.createEdit.form.industry')"
-        autogrow
+        :options="industryOptions"
+        map-options
+        emit-value
         :rules="validations.industry"
         lazy-rules
       )

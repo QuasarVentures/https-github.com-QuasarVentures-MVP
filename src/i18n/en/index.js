@@ -22,6 +22,11 @@ export default {
       save: 'Save',
       update: 'Update'
     },
+    industry: {
+      '3724': '3724 - Electricians',
+      '7380': '7380 - Trucking',
+      '5190': '5190 - Electricians'
+    },
     list: {
       new: 'New Gig',
       table: {
