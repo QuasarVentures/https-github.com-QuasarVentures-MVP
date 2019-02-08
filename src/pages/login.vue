@@ -35,14 +35,7 @@ export default {
           const user = await this.$usersdb.get(this.loginForm.email)
           if (user) {
             if (await this.verify(this.loginForm.password, user.passwordHash)) {
-              this.setUser({
-                role: user.role,
-                email: user.email,
-                address: user.address,
-                city: user.city,
-                zipCode: user.zipCode,
-                phone: user.phone
-              })
+              this.setUser(user)
               this.$router.push({ path: '/dashboard' })
             }
           } else {

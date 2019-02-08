@@ -23,10 +23,11 @@ export default {
     }
   },
   async mounted () {
-    // TODO state filter
     this.gigs = (await this.$gigsdb.allDocs({
       include_docs: true
-    })).rows.filter(r => !r.doc.views).map(r => r.doc)
+    })).rows
+      .filter(r => !r.doc.views && (this.user.role !== 'freelancer' || (this.user.role === 'freelancer' && r.doc.state === this.user.state)))
+      .map(r => r.doc)
   },
   methods: {
     async deleteGig (id, rev) {

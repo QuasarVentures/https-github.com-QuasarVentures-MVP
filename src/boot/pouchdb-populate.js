@@ -25,7 +25,7 @@ export default async ({ Vue }) => {
         streetNumber: '569',
         streetName: 'Lynn Ogden Lane',
         city: 'Galveston',
-        state: 'California',
+        state: 'Texas',
         zip: '77550',
         ssn: '727-999-0973',
         sex: 'M',
