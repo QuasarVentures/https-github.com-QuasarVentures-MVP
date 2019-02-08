@@ -51,6 +51,16 @@ const routes = [
         meta: { icon: 'Farmer.png' }
       },
       {
+        path: '/profile',
+        component: () => import('pages/users/profile.vue'),
+        meta: { icon: 'Farmer.png' }
+      },
+      {
+        path: '/profile/edit',
+        component: () => import('pages/users/profile-edit.vue'),
+        meta: { icon: 'Farmer.png' }
+      },
+      {
         path: '/stats',
         component: () => import('pages/stats.vue'),
         meta: { icon: 'PresentingProject.png' }

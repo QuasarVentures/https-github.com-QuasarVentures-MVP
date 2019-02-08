@@ -38,6 +38,13 @@ export default {
           icon="work"
           flat
         )
+        q-btn(
+          v-if="user.role === 'freelancer'"
+          :to="{ path: '/profile' }"
+          :label="$t('layout.menu.profile')"
+          icon="account_box"
+          flat
+        )
         LangPicker()
 
     q-page-container

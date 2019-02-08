@@ -49,6 +49,7 @@ export default {
   layout: {
     menu: {
       gigs: 'GIGs',
+      profile: 'Profile',
       stats: 'Stats',
       users: 'Users'
     }
@@ -62,6 +63,18 @@ export default {
       }
     },
     registerLink: 'No account yet? Click here to register.'
+  },
+  profile: {
+    downloadContract: 'Download my contract',
+    maritalStatus: {
+      M: 'Married',
+      S: 'Single'
+    },
+    sex: {
+      F: 'Female',
+      M: 'Male'
+    },
+    update: 'Update'
   },
   register: {
     registerForm: {
