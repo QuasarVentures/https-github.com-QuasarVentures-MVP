@@ -45,7 +45,7 @@ export default {
       })
       if (result.ok) {
         obj._rev = result.rev
-        console.log(obj)
+        // console.log(obj)
         this.gigs = [...this.gigs.slice(0, idx), obj, ...this.gigs.slice(idx + 1)]
       }
     },
@@ -59,7 +59,7 @@ export default {
       })
       if (result.ok) {
         obj._rev = result.rev
-        console.log(obj)
+        // console.log(obj)
         this.gigs = [...this.gigs.slice(0, idx), obj, ...this.gigs.slice(idx + 1)]
       }
     }
@@ -99,7 +99,7 @@ q-page.q-ma-md.flex.column.items-end
       q-td(key="payment", :props="props") {{ props.row.payment }}
       q-td(key="worker", :props="props") {{ props.row.email }}
         q-icon(v-if="props.row.worker", name="account_box", color="green", size="24px")
-          q-tooltip
+          q-tooltip(v-if="user.role === 'manager'")
            | {{ props.row.worker }}
       q-td(key="actions", :props="props")
         q-btn(

@@ -48,7 +48,6 @@ export default {
       this.inception = true
       this.mail = mail
       this.name = name
-      this.$refs.editor.value = this.renderMail()
     },
     sendMsgNow () {
       this.$refs.messager.hide()

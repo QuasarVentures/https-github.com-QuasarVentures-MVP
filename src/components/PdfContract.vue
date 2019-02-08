@@ -1,9 +1,11 @@
 <template lang="pug">
-  iframe.pdf-contract(:src="pdfSrc" width="100%" height="100%")
+  iframe.pdf-contract(:src="pdfSrc" width="100%" height="99%" frameBorder="0")
 </template>
 
 <script>
 import PDF from 'jspdf'
+import { uid, date } from 'quasar'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'PdfContract',
@@ -13,6 +15,9 @@ export default {
       pdfSrc: ''
     }
   },
+  computed: {
+    ...mapGetters('user', ['user'])
+  },
   methods: {
     createPDF () {
       let pdfName = 'ContractGenerated'
@@ -21,6 +26,9 @@ export default {
       let logo64 = 'data:image/png;base64,' + btoa(logo)
       let data = this.data
       let width = 100
+      doc.setFontSize(8)
+      doc.setFontStyle('bold')
+      doc.text(uid(), 100, 5)
       doc.setFontSize(12)
       doc.setFontStyle('bold')
       doc.text('INDEPENDENT CONTRACTOR', 10, 10)
@@ -31,19 +39,19 @@ export default {
       doc.text('Insured Person Information:', 10, 40)
       doc.setFontStyle('normal')
       let base = 50
-      doc.text(data.principal.lastName + '\t\t' + data.principal.firstName + '\t\t' + data.principal.middleInitial, 10, base)
+      doc.text(this.user.lastName + '\t\t' + this.user.firstName, 10, base)
       doc.line(10, base + 1, width, base + 1)
       doc.setFontStyle('italic')
       doc.text('Last Name\t\tFirst Name\tM.I.', 10, base + 5)
       doc.setFontStyle('normal')
       base += 15
-      doc.text(data.principal.street, 10, base)
+      doc.text(this.user.streetNumber + ' ' + this.user.streetName, 10, base)
       doc.line(10, base + 1, width, base + 1)
       doc.setFontStyle('italic')
       doc.text('Street Address', 10, base + 5)
       doc.setFontStyle('normal')
       base += 15
-      doc.text(data.principal.city + '\t' + data.principal.state + '\t' + data.principal.zip, 10, base)
+      doc.text(this.user.city + '\t' + this.user.state + '\t' + this.user.zip, 10, base)
       doc.line(10, base + 1, width, base + 1)
       doc.setFontStyle('italic')
       doc.text('City\t\tState\t\tZip', 10, base + 5)
@@ -52,19 +60,19 @@ export default {
       doc.text('Telephone: ', 10, base)
       doc.line(35, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.principal.telephone, 35, base)
+      doc.text(this.user.phone, 35, base)
       doc.setFontStyle('bold')
       base += 10
       doc.text('Social Security #: ', 10, base)
       doc.line(47, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.principal.ssn, 47, base)
+      doc.text(this.user.ssn, 47, base)
       doc.setFontStyle('bold')
       base += 10
       doc.text('Date of Birth (MM/DD/YYYY): ', 10, base)
       doc.line(68, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.principal.birthday, 68, base)
+      doc.text(this.user.birthday, 68, base)
       doc.setFontStyle('bold')
       base += 10
       doc.text('Sex: ', 10, base)
@@ -77,9 +85,9 @@ export default {
       doc.text('Marital Status: ', 40, base)
       doc.line(70, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.principal.marital, 70, base)
+      doc.text(this.user.maritalStatus, 70, base)
       let margin = 21
-      if (data.principal.sex === 'M') {
+      if (this.user.sex === 'M') {
         margin = 31
       }
       doc.text('X', margin, base)
@@ -116,19 +124,23 @@ export default {
       doc.text('Contract Effective Date: ', 10, base)
       doc.line(60, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.CED, 60, base)
+      let timeStamp = Date.now()
+      doc.text(date.formatDate(timeStamp, 'DD-MMM-YYYY') + ' GMT', 120, base)
       doc.setFontStyle('bold')
+      timeStamp = date.addToDate(timeStamp, { days: 5 })
+      doc.text(date.formatDate(timeStamp, 'DD-MMM-YYYY'), 78, base)
       base += 5
       doc.text('Desired Insurance Effective Date: ', 10, base)
       doc.line(78, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.DIED, 78, base)
+      timeStamp = date.addToDate(timeStamp, { days: 1, month: 6 })
+      doc.text(date.formatDate(timeStamp, 'DD-MMM-YYYY'), 78, base)
       doc.setFontStyle('bold')
       base += 5
       doc.text('Contractor Number: ', 10, base)
       doc.line(53, base + 1, width, base + 1)
       doc.setFontStyle('normal')
-      doc.text(data.CN, 53, base)
+      doc.text(uid().split('-')[0], 53, base)
       doc.setFontStyle('bold')
       base += 5
       doc.text('Leased to: ', 10, base)
@@ -184,6 +196,16 @@ export default {
       this.pdfSrc = doc.output('datauristring', { filename: pdfName })
     }
   },
+  watch: {
+    user: {
+      handler (val, oldVal) {
+        this.data.principal.firstName = val.firstName
+        alert('change')
+        this.createPDF()
+      }
+    },
+    immediate: true
+  },
   mounted () {
     this.createPDF()
   }
@@ -192,5 +214,5 @@ export default {
 
 <style lang="stylus" scoped>
 iframe.pdf-contract
-  border 0px green solid
+  border
 </style>
