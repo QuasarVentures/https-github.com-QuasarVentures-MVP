@@ -53,7 +53,7 @@ export default {
             q-icon(name="language")
     q-page-container
       .col-md-6.col-xs-3
-        img.absolute-left(src="statics/stockArt/Farmer.png" style="opacity:0.8;max-height:80vh;transform: scaleX(-1),z-index:0")
+        img.absolute-left(:src="`statics/stockArt/${($route.meta && $route.meta.icon) || 'Farmer.png'}`" style="opacity:0.8;max-height:80vh;transform: scaleX(-1),z-index:0")
       .col-md-6.col-xs-9
         router-view
 </template>
