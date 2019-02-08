@@ -1,18 +1,9 @@
 <script>
+import LangPicker from 'src/components/LangPicker'
+
 export default {
   name: 'EmptyLayout',
-  data () {
-    return {
-      locale: this.$q.i18n || 'en',
-      locales: ['en', 'es']
-    }
-  },
-  methods: {
-    changeLang (val) {
-      this.$q.i18n = val
-      this.$i18n.locale = val
-    }
-  }
+  components: { LangPicker }
 }
 </script>
 
@@ -22,9 +13,8 @@ export default {
       q-toolbar
         q-toolbar-title
           h3 MVGgig
-        q-select(dense, options-dense, flat, borderless, v-model="locale", :options="locales" @input="val => changeLang(val)")
-          template(v-slot:prepend)
-            q-icon(name="language")
+        LangPicker()
+
     q-page-container
       q-item.row
         .col-md-6.col-xs-2

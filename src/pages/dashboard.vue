@@ -1,6 +1,6 @@
 <script>
 import { mapGetters } from 'vuex'
-import PdfContract from 'src/components/PdfContract'
+// import PdfContract from 'src/components/PdfContract'
 
 export default {
   name: 'dashboard',
@@ -43,17 +43,17 @@ export default {
     ...mapGetters('user', ['user'])
   },
   components: {
-    PdfContract
+    // PdfContract
   }
 }
 </script>
 
 <template lang="pug">
 q-page.flex.flex-center.column
-  h3 Welcome
-  h4 {{user && user.email}}
-  div.pdf-container
-    pdf-contract(:data="user")
+  h2 {{ $t('welcome') }}
+  h4 {{ user && user.email }}
+  // div.pdf-container
+    // pdf-contract(:data="user")
 </template>
 
 <style lang="stylus">

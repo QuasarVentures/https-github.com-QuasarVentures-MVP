@@ -1,6 +1,7 @@
 export default {
   langLabel: 'es',
   langName: 'Español',
+  welcome: 'Hola',
   gigs: {
     createEdit: {
       form: {

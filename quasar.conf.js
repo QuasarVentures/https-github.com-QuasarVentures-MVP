@@ -24,7 +24,7 @@ module.exports = function (ctx) {
     ],
 
     supportIE: false,
-
+    lang: 'en',
     build: {
       scopeHoisting: true,
       // vueRouterMode: 'history',

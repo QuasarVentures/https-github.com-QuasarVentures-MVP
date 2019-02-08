@@ -8,7 +8,7 @@ import PDF from 'jspdf'
 export default {
   name: 'PdfContract',
   props: ['data'],
-  data: () => {
+  data () {
     return {
       pdfSrc: ''
     }
