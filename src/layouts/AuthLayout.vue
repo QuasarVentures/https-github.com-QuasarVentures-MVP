@@ -48,6 +48,13 @@ export default {
           icon="work"
           flat
         )
+        q-btn(
+          v-if="user.role === 'freelancer'"
+          :to="{ path: '/profile' }"
+          :label="$t('layout.menu.profile')"
+          icon="account_box"
+          flat
+        )
         q-select(dense, text-color="white" options-dense, flat, borderless, v-model="locale", :options="locales" @input="val => changeLang(val)")
           template(v-slot:prepend)
             q-icon(name="language")
