@@ -28,12 +28,12 @@ const routes = [
       {
         path: '/dashboard',
         component: () => import('pages/dashboard.vue'),
-        meta: { icon: 'PropertyPurchase.png' }
+        meta: { icon: 'Waiter.png' }
       },
       {
         path: '/gigs',
         component: () => import('pages/gigs/gigs-list.vue'),
-        meta: { icon: 'PropertyPurchase.png' }
+        meta: { icon: 'DeliveryMan.png' }
       },
       {
         path: '/gigs/create',
@@ -53,7 +53,7 @@ const routes = [
       {
         path: '/stats',
         component: () => import('pages/stats.vue'),
-        meta: { icon: 'PropertyPurchase.png' }
+        meta: { icon: 'PresentingProject.png' }
       }
     ]
   }

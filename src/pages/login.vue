@@ -20,7 +20,8 @@ export default {
         password: [ val => !!val || this.$t('validations.errors.required') ]
       },
       isPwd: true,
-      submitting: false
+      submitting: false,
+      showControls: false
     }
   },
   methods: {
@@ -54,7 +55,7 @@ export default {
       this.submitting = false
     },
     login (type) {
-      this.loginForm.email = `${type.email}@email.com`
+      this.loginForm.email = `${type}@email.com`
       this.loginForm.password = 'password'
     }
   }
@@ -99,12 +100,13 @@ q-page.flex.flex-center
     q-separator
     q-card-section
       router-link(to="/register") {{$t('login.registerLink')}}
-    q-card-section
-      q-bar
-        q-btn(flat, dense, @click="login('admin')" label="Admin")
-        q-btn(flat, dense, @click="login('manager')" label="Manager")
-        q-btn(flat, dense, @click="login('freelancer')" label="Admin")
-
+      q-toggle.absolute-right(v-model="showControls" icon="explore" color="blue-grey-5")
+    q-bar.bg-blue-grey-5(v-if="showControls")
+      q-icon(name="explore")
+      q-space
+      q-btn(flat, dense, text-color="grey-2" @click="login('admin')" :label="$t('register.registerForm.roles.admin')")
+      q-btn(flat, dense, text-color="grey-2" @click="login('manager')" :label="$t('register.registerForm.roles.manager')")
+      q-btn(flat, dense, text-color="grey-2" @click="login('freelancer')" :label="$t('register.registerForm.roles.freelancer')")
 </template>
 
 <style lang="stylus">

@@ -26,7 +26,6 @@ export default {
     q-header(elevated)
       q-toolbar
         q-toolbar-title MVG
-        q-toolbar-subtitle MostValuableGig
         q-btn(
           v-if="user.role === 'admin'"
           :to="{ path: '/stats' }"

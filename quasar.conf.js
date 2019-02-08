@@ -59,6 +59,7 @@ module.exports = function (ctx) {
     // framework: 'all' --- includes everything; for dev only!
     framework: {
       components: [
+        'QBar',
         'QBtn',
         'QCard',
         'QCardSection',
@@ -80,10 +81,12 @@ module.exports = function (ctx) {
         'QScrollArea',
         'QSelect',
         'QSeparator',
+        'QSpace',
         'QTable',
         'QTd',
         'QTh',
         'QTr',
+        'QToggle',
         'QToolbar',
         'QToolbarTitle'
       ],
