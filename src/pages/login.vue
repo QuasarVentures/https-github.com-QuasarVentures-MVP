@@ -48,7 +48,11 @@ export default {
       this.submitting = false
     },
     login (type) {
+<<<<<<< HEAD
       this.loginForm.email = `${type}@email.com`
+=======
+      this.loginForm.email = `${type.email}@email.com`
+>>>>>>> quick login links for the demo
       this.loginForm.password = 'password'
     }
   }
@@ -100,6 +104,7 @@ q-page.flex.flex-center
       q-btn(flat, dense, text-color="grey-2" @click="login('admin')" :label="$t('register.registerForm.roles.admin')")
       q-btn(flat, dense, text-color="grey-2" @click="login('manager')" :label="$t('register.registerForm.roles.manager')")
       q-btn(flat, dense, text-color="grey-2" @click="login('freelancer')" :label="$t('register.registerForm.roles.freelancer')")
+
 </template>
 
 <style lang="stylus">
