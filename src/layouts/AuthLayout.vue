@@ -36,6 +36,13 @@ export default {
         )
         q-btn(
           v-if="user.role === 'manager'"
+          :to="{ path: '/users' }"
+          :label="$t('layout.menu.users')"
+          icon="face"
+          flat
+        )
+        q-btn(
+          v-if="user.role === 'manager'"
           :to="{ path: '/gigs' }"
           :label="$t('layout.menu.gigs')"
           icon="work"

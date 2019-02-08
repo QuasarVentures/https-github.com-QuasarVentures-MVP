@@ -30,6 +30,10 @@ const routes = [
         component: () => import('pages/gigs/gigs-create-edit.vue')
       },
       {
+        path: '/users',
+        component: () => import('pages/users/users-list.vue')
+      },
+      {
         path: '/stats',
         component: () => import('pages/stats.vue')
       }
