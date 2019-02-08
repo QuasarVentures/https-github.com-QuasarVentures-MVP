@@ -120,7 +120,7 @@ q-page.flex.flex-center
           @click="isPwd = !isPwd"
         )
       .row
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="firstName"
             v-model="registerForm.firstName"
@@ -130,7 +130,7 @@ q-page.flex.flex-center
             :rules="validations.firstName"
             lazy-rules
           )
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="lastName"
             v-model="registerForm.lastName"
@@ -141,7 +141,7 @@ q-page.flex.flex-center
             lazy-rules
           )
       .row
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="birthday"
             v-model="registerForm.birthday"
@@ -151,7 +151,7 @@ q-page.flex.flex-center
             :rules="validations.birthday"
             lazy-rules
           )
-        .col-md-6
+        .col-md-6.col-xs-6
           q-select(
             ref="sex"
             v-model="registerForm.sex",
@@ -163,7 +163,7 @@ q-page.flex.flex-center
             lazy-rules
           )
       .row
-        .col-md-6
+        .col-md-6.col-xs-6
           q-select(
             ref="maritalStatus"
             v-model="registerForm.maritalStatus",
@@ -174,7 +174,7 @@ q-page.flex.flex-center
             :rules="validations.maritalStatus"
             lazy-rules
           )
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="phone"
             v-model="registerForm.phone"
@@ -185,7 +185,7 @@ q-page.flex.flex-center
             lazy-rules
           )
       .row
-        .col-md-3
+        .col-md-3.col-xs-5
           q-input(
             ref="streetNumber"
             v-model="registerForm.streetNumber"
@@ -195,7 +195,7 @@ q-page.flex.flex-center
             :rules="validations.streetNumber"
             lazy-rules
           )
-        .col-md-9
+        .col-md-9.col-xs-7
           q-input(
           ref="streetName"
           v-model="registerForm.streetName"
@@ -206,7 +206,7 @@ q-page.flex.flex-center
           lazy-rules
         )
       .row
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="city"
             v-model="registerForm.city"
@@ -216,7 +216,7 @@ q-page.flex.flex-center
             :rules="validations.city"
             lazy-rules
           )
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="zip"
             v-model="registerForm.zip"
@@ -255,8 +255,11 @@ q-page.flex.flex-center
 </template>
 
 <style lang="stylus">
+@import '~quasar-variables'
 .register-form
   min-width 450px
+  @media (max-width $breakpoint-sm-max)
+    min-width 300px
   .agreement
     margin-left -13px
 </style>
