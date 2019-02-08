@@ -1,4 +1,6 @@
 export default {
+  langLabel: 'es',
+  langName: 'Español',
   layout: {
     menu: {
       gigs: 'GIGs',

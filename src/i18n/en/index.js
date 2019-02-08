@@ -1,4 +1,6 @@
 export default {
+  langLabel: 'en',
+  langName: 'English',
   gigs: {
     createEdit: {
       form: {
