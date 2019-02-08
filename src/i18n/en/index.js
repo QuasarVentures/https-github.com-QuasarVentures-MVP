@@ -26,7 +26,9 @@ export default {
     industry: {
       '3724': '3724 - Electricians',
       '7380': '7380 - Trucking',
-      '5190': '5190 - Electricians'
+      '5190': '5190 - Electricians',
+      'NBA': 'NBA',
+      'NFL': 'NFL'
     },
     list: {
       new: 'New Gig',
@@ -68,7 +70,8 @@ export default {
     downloadContract: 'Download my contract',
     maritalStatus: {
       M: 'Married',
-      S: 'Single'
+      S: 'Single',
+      undefined: 'Private'
     },
     sex: {
       F: 'Female',

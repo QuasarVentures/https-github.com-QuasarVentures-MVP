@@ -2,6 +2,7 @@ export default {
   langLabel: 'es',
   langName: 'Español',
   welcome: 'Hola',
+  sendMessage: 'Messager',
   gigs: {
     createEdit: {
       form: {

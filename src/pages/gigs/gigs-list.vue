@@ -84,6 +84,7 @@ q-page.q-ma-md.flex.column.items-end
     :columns="columns"
     row-key="_id"
     :rows-per-page-options="[10, 20, 50]"
+    dense
   )
     q-tr(slot="body", slot-scope="props", :props="props")
       q-td(key="industry", :props="props") {{ $t(`gigs.industry.${props.row.industry}`) }}
@@ -96,7 +97,7 @@ q-page.q-ma-md.flex.column.items-end
       q-td(key="address", :props="props") {{ props.row.address }}
       q-td(key="state", :props="props") {{ props.row.state }}
       q-td(key="payment", :props="props") {{ props.row.payment }}
-      q-td(key="worker", :props="props")
+      q-td(key="worker", :props="props") {{ props.row.email }}
         q-icon(v-if="props.row.worker", name="account_box", color="green", size="24px")
           q-tooltip
            | {{ props.row.worker }}
