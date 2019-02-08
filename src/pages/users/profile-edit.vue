@@ -1,22 +1,13 @@
 <script>
-import Password from 'src/mixins/password'
-import { isEmail, isLength } from 'validator'
-import { mapActions } from 'vuex'
+import { isEmail } from 'validator'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: 'page-register',
-  mixins: [Password],
+  name: 'page-profile-edit',
   data () {
     return {
-      roleOptions: [
-        { value: 'admin', label: this.$t('register.registerForm.roles.admin') },
-        { value: 'manager', label: this.$t('register.registerForm.roles.manager') },
-        { value: 'freelancer', label: this.$t('register.registerForm.roles.freelancer') }
-      ],
       registerForm: {
-        role: null,
         email: null,
-        password: null,
         firstName: null,
         lastName: null,
         birthday: null,
@@ -27,20 +18,13 @@ export default {
         city: null,
         zip: null,
         state: null,
-        phone: null,
-        termsAgreement: false
+        phone: null
       },
       validations: {
-        role: [val => !!val || this.$t('validations.errors.required')],
         email: [
           val => !!val || this.$t('validations.errors.required'),
           val => isEmail(val) || this.$t('validations.errors.email')
           // TODO database existence validation
-        ],
-        password: [
-          val => !!val || this.$t('validations.errors.required'),
-          val => isLength(val, { min: 8 }) || this.$t('validations.errors.minLength', { count: 8 }),
-          val => isLength(val, { max: 16 }) || this.$t('validations.errors.maxLength', { count: 16 })
         ],
         firstName: [val => !!val || this.$t('validations.errors.required')],
         lastName: [val => !!val || this.$t('validations.errors.required')],
@@ -59,6 +43,9 @@ export default {
       submitting: false
     }
   },
+  mounted () {
+    this.registerForm = this.user
+  },
   methods: {
     ...mapActions('user', ['setUser']),
     async submit () {
@@ -66,17 +53,23 @@ export default {
       Object.keys(this.validations).forEach((key) => this.$refs[key].validate())
       const isFormValid = Object.keys(this.validations).reduce((valid, key) => valid && !this.$refs[key].hasError, true)
       if (isFormValid) {
-        const { password, termsAgreement, ...user } = this.registerForm
-        this.$usersdb.put({
-          _id: user.email,
-          passwordHash: await this.encrypt(password),
-          ...user
+        const result = await this.$usersdb.put({
+          _id: this.user._id,
+          _rev: this.user._rev,
+          ...this.registerForm
         })
-        this.setUser(user)
-        this.$router.push({ path: '/dashboard' })
+        this.setUser({
+          ...this.registerForm,
+          _id: this.user._id,
+          _rev: result.rev
+        })
+        this.$router.push({ path: '/profile' })
       }
       this.submitting = false
     }
+  },
+  computed: {
+    ...mapGetters('user', ['user'])
   }
 }
 </script>
@@ -85,17 +78,6 @@ export default {
 q-page.flex.flex-center
   q-card.register-form
     q-card-section
-      q-select(
-        ref="role"
-        v-model="registerForm.role",
-        :options="roleOptions"
-        map-options
-        :label="$t('register.registerForm.role')"
-        stack-label
-        :rules="validations.role"
-        emit-value
-        lazy-rules
-      )
       q-input(
         ref="email"
         v-model="registerForm.email"
@@ -105,21 +87,6 @@ q-page.flex.flex-center
         :rules="validations.email"
         lazy-rules
       )
-      q-input(
-        ref="password"
-        v-model="registerForm.password"
-        :type="isPwd ? 'password' : 'text'"
-        :label="$t('register.registerForm.password')"
-        stack-label
-        :rules="validations.password"
-        lazy-rules
-      )
-        q-icon(
-          slot="append"
-          :name="isPwd ? 'visibility_off' : 'visibility'"
-          class="cursor-pointer"
-          @click="isPwd = !isPwd"
-        )
       .row
         .col-md-6.col-xs-6
           q-input(
@@ -200,14 +167,14 @@ q-page.flex.flex-center
           )
         .col-md-9.col-xs-7
           q-input(
-          ref="streetName"
-          v-model="registerForm.streetName"
-          type="text"
-          :label="$t('register.registerForm.streetName')"
-          stack-label
-          :rules="validations.streetName"
-          lazy-rules
-        )
+            ref="streetName"
+            v-model="registerForm.streetName"
+            type="text"
+            :label="$t('register.registerForm.streetName')"
+            stack-label
+            :rules="validations.streetName"
+            lazy-rules
+          )
       .row
         .col-md-6.col-xs-6
           q-input(
@@ -239,22 +206,13 @@ q-page.flex.flex-center
         :rules="validations.state"
         lazy-rules
       )
-      q-checkbox.agreement(
-        ref="termsAgreement"
-        v-model="registerForm.termsAgreement"
-        :label="$t('register.registerForm.termsAgreement')"
-        :rules="validations.termsAgreement"
-      )
     q-card-actions
       q-btn.full-width(
         color="primary"
-        :label="$t('register.registerForm.register.label')"
+        :label="$t('profile.update')"
         @click.native="submit"
         :loading="submitting"
       )
-    q-separator
-    q-card-section
-      router-link(to="/login") {{$t('register.loginLink')}}
 </template>
 
 <style lang="stylus">
