@@ -20,8 +20,8 @@ export default {
   q-layout(view="lHh Lpr lFf" style="overflow-x: hidden")
     q-header(elevated)
       q-toolbar
-        q-toolbar-title MVG
-        q-toolbar-subtitle.absolute-center MostValuableGig
+        q-toolbar-title
+          h3 MVGgig
         q-select(dense, options-dense, flat, borderless, v-model="locale", :options="locales" @input="val => changeLang(val)")
           template(v-slot:prepend)
             q-icon(name="language")
