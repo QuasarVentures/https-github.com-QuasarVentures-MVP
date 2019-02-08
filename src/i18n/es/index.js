@@ -5,38 +5,51 @@ export default {
     createEdit: {
       form: {
         address: 'Dirección',
-        code: 'Código',
+        industry: 'Industria',
+        client: 'Cliente',
+        job: 'Trabajo',
         endDate: 'Fecha de termino',
+        endTime: 'Hora de termino',
         payment: 'Pago',
         startDate: 'Fecha de inicio',
+        startTime: 'Hora de inicio',
         state: 'Estado'
       },
       title: {
-        create: 'Crear un gig nuevo',
-        edit: 'Editar un gig'
+        create: 'Crear un trabajo nuevo',
+        edit: 'Editar un trabajo'
       },
       save: 'Guardar',
       update: 'Actualizar'
     },
+    industry: {
+      '3724': '3724 - Electricians',
+      '7380': '7380 - Trucking',
+      '5190': '5190 - Electricians'
+    },
     list: {
-      new: 'Nuevo Gig',
+      new: 'Nuevo Trabajo',
       table: {
-        assigned: 'TODO',
-        code: 'Código',
+        assigned: 'Asignado',
+        industry: 'Industria',
+        client: 'Cliente',
+        job: 'Trabajo',
         startDate: 'Fecha de inicio',
+        startTime: 'Hora de inicio',
         endDate: 'Fecha de termino',
+        endTime: 'Hora de termino',
         address: 'Dirección',
         state: 'Estado',
         payment: 'Pago'
       },
-      title: 'Gigs'
+      title: 'Trabajos'
     }
   },
   layout: {
     menu: {
-      gigs: 'GIGs',
+      gigs: 'trabajos',
       stats: 'Estadísticas',
-      users: 'TODO'
+      users: 'Usuarios'
     }
   },
   login: {
@@ -51,12 +64,12 @@ export default {
   },
   register: {
     registerForm: {
-      birthday: 'TODO',
+      birthday: 'Fecha de nacimiento',
       city: 'Ciudad',
       email: 'Correo electrónico',
-      firstName: 'TODO',
-      lastName: 'TODO',
-      maritalStatus: 'TODO',
+      firstName: 'Nombre',
+      lastName: 'Apellido',
+      maritalStatus: 'Estado civil',
       password: 'Contraseña',
       phone: 'Teléfono',
       register: {
@@ -68,38 +81,38 @@ export default {
         manager: 'Gerente',
         freelancer: 'Trabajador independiente'
       },
-      sex: 'TODO',
-      ssn: 'TODO',
-      state: 'TODO',
-      streetName: 'TODO',
-      streetNumber: 'TODO',
+      sex: 'Sexo',
+      ssn: 'Número de seguro social',
+      state: 'Estado',
+      streetName: 'Calle',
+      streetNumber: 'Número',
       termsAgreement: 'Estoy de acuerdo con los términos y servicios',
       zip: 'Código Postal'
     },
     loginLink: 'Ya tengo cuenta.'
   },
   stats: {
-    gigs: 'GIGs',
+    gigs: 'Trabajos',
     workers: 'Trabajadores'
   },
   users: {
     list: {
       table: {
-        birthday: 'TODO',
-        city: 'TODO',
-        email: 'TODO',
-        firstName: 'TODO',
-        lastName: 'TODO',
-        maritalStatus: 'TODO',
-        phone: 'TODO',
-        sex: 'TODO',
-        ssn: 'SSN',
-        state: 'TODO',
-        streetName: 'TODO',
-        streetNumber: 'TODO',
-        zip: 'TODO'
+        birthday: 'Fecha de nacimiento',
+        city: 'Ciudad',
+        email: 'Correo electrónico',
+        firstName: 'Nombre',
+        lastName: 'Apellido',
+        maritalStatus: 'Estado civil',
+        phone: 'Teléfono',
+        sex: 'Sexo',
+        ssn: 'Número de seguro social',
+        state: 'Estado',
+        streetName: 'Calle',
+        streetNumber: 'Número',
+        zip: 'Código postal'
       },
-      title: 'TODO'
+      title: 'Trabajadores'
     }
   },
   validations: {
