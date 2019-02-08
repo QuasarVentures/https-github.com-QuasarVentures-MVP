@@ -27,7 +27,7 @@ export default {
             q-icon(name="language")
     q-page-container
       q-item.row
-        .col-md-6.col-xs-3
+        .col-md-6.col-xs-2
           img.absolute-center(src="statics/stockArt/PropertyPurchase.png" style="opacity:0.8;max-height:80vh;transform: scaleX(-1),z-index:0")
         .col-md-6.col-xs-9
           router-view

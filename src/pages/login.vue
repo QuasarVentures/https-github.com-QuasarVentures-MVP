@@ -103,6 +103,9 @@ q-page.flex.flex-center
 </template>
 
 <style lang="stylus">
+@import '~quasar-variables'
 .login-form
   min-width 450px
+  @media (max-width $breakpoint-sm-max)
+    min-width 300px
 </style>

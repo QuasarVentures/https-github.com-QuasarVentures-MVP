@@ -111,7 +111,7 @@ q-page.flex.flex-center.column
         lazy-rules
       )
       .row.q-col-gutter-sm
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="startDate"
             v-model="gigForm.startDate"
@@ -121,7 +121,7 @@ q-page.flex.flex-center.column
             :rules="validations.startDate"
             lazy-rules
           )
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
             ref="startTime"
             v-model="gigForm.startTime"
@@ -132,7 +132,7 @@ q-page.flex.flex-center.column
             lazy-rules
           )
       .row.q-col-gutter-sm
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
           ref="endDate"
           v-model="gigForm.endDate"
@@ -142,7 +142,7 @@ q-page.flex.flex-center.column
           :rules="validations.endDate"
           lazy-rules
           )
-        .col-md-6
+        .col-md-6.col-xs-6
           q-input(
           ref="endTime"
           v-model="gigForm.endTime"
@@ -189,6 +189,9 @@ q-page.flex.flex-center.column
 </template>
 
 <style lang="stylus">
+@import '~quasar-variables'
 .gig-form
   min-width 450px
+  @media (max-width $breakpoint-sm-max)
+    min-width 350px
 </style>
