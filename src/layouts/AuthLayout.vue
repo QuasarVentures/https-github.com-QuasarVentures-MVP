@@ -25,7 +25,8 @@ export default {
   q-layout(view="lHh Lpr lFf" style="overflow-x: hidden")
     q-header(elevated)
       q-toolbar
-        q-toolbar-title MVG
+        q-toolbar-title
+          h3 MVGig
         q-btn(
           v-if="user.role === 'admin'"
           :to="{ path: '/stats' }"
