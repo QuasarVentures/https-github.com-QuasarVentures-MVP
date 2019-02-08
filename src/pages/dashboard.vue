@@ -53,7 +53,7 @@ q-page.flex.flex-center.column
   h3 Welcome
   h4 {{user && user.email}}
   div.pdf-container
-    pdf-contract(:data="insured")
+    pdf-contract(:data="user")
 </template>
 
 <style lang="stylus">
