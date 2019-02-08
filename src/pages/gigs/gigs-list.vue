@@ -86,7 +86,7 @@ q-page.q-ma-md.flex.column.items-end
     :rows-per-page-options="[10, 20, 50]"
   )
     q-tr(slot="body", slot-scope="props", :props="props")
-      q-td(key="industry", :props="props") {{ props.row.industry }}
+      q-td(key="industry", :props="props") {{ $t(`gigs.industry.${props.row.industry}`) }}
       q-td(key="client", :props="props") {{ props.row.client }}
       q-td(key="job", :props="props") {{ props.row.job }}
       q-td(key="startDate", :props="props") {{ props.row.startDate }}
