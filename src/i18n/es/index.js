@@ -49,9 +49,12 @@ export default {
   },
   register: {
     registerForm: {
-      address: 'Dirección',
+      birthday: 'TODO',
       city: 'Ciudad',
       email: 'Correo electrónico',
+      firstName: 'TODO',
+      lastName: 'TODO',
+      maritalStatus: 'TODO',
       password: 'Contraseña',
       phone: 'Teléfono',
       register: {
@@ -63,8 +66,13 @@ export default {
         manager: 'Gerente',
         freelancer: 'Trabajador independiente'
       },
+      sex: 'TODO',
+      ssn: 'TODO',
+      state: 'TODO',
+      streetName: 'TODO',
+      streetNumber: 'TODO',
       termsAgreement: 'Estoy de acuerdo con los términos y servicios',
-      zipCode: 'Código Postal'
+      zip: 'Código Postal'
     },
     loginLink: 'Ya tengo cuenta.'
   },
