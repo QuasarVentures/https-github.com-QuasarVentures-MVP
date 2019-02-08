@@ -48,11 +48,7 @@ export default {
       this.submitting = false
     },
     login (type) {
-<<<<<<< HEAD
       this.loginForm.email = `${type}@email.com`
-=======
-      this.loginForm.email = `${type.email}@email.com`
->>>>>>> quick login links for the demo
       this.loginForm.password = 'password'
     }
   }
