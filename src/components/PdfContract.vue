@@ -22,7 +22,7 @@ export default {
     createPDF () {
       let pdfName = 'ContractGenerated'
       let doc = new PDF()
-      let logo = doc.loadImageFile('statics/quasar-logo.png', true)
+      let logo = doc.loadImageFile('statics/gigGuard.png', true)
       let logo64 = 'data:image/png;base64,' + btoa(logo)
       let data = this.data
       let width = 100
@@ -125,7 +125,7 @@ export default {
       doc.line(60, base + 1, width, base + 1)
       doc.setFontStyle('normal')
       let timeStamp = Date.now()
-      doc.text(date.formatDate(timeStamp, 'DD-MMM-YYYY') + ' GMT', 120, base)
+      doc.text(date.formatDate(timeStamp, 'DD-MMM-YYYY'), 120, base)
       doc.setFontStyle('bold')
       timeStamp = date.addToDate(timeStamp, { days: 5 })
       doc.text(date.formatDate(timeStamp, 'DD-MMM-YYYY'), 78, base)

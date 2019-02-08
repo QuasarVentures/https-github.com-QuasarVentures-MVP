@@ -12,7 +12,10 @@ export default {
     q-header(elevated)
       q-toolbar
         q-toolbar-title
-          h3 MVGgig
+          .row
+            q-avatar.absolute-top-left.q-pa-md()
+              img(src="statics/gigGuard.png" height="128")
+            h3.absolute-center MVGiG
         LangPicker()
 
     q-page-container

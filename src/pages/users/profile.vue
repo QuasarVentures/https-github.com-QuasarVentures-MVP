@@ -70,7 +70,7 @@ q-page.flex.flex-center.column
       :label="$t('Sign with Docusign')"
       @click="docuSign()"
     )
-    q-btn.q-ma-md.absolute-top-left(
+    q-btn.q-ml-md.q-mt-sm.absolute-top-left(
       v-if="contract"
       color="red-8"
       icon="close"

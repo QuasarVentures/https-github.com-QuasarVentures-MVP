@@ -16,7 +16,7 @@ export default {
     q-header(elevated)
       q-toolbar
         q-toolbar-title
-          h3 MVGig
+          h3 MVGiG
         q-btn(
           v-if="user.role === 'admin'"
           :to="{ path: '/stats' }"
