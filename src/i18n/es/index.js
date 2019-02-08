@@ -34,7 +34,8 @@ export default {
   layout: {
     menu: {
       gigs: 'GIGs',
-      stats: 'Estadísticas'
+      stats: 'Estadísticas',
+      users: 'TODO'
     }
   },
   login: {
@@ -49,9 +50,12 @@ export default {
   },
   register: {
     registerForm: {
-      address: 'Dirección',
+      birthday: 'TODO',
       city: 'Ciudad',
       email: 'Correo electrónico',
+      firstName: 'TODO',
+      lastName: 'TODO',
+      maritalStatus: 'TODO',
       password: 'Contraseña',
       phone: 'Teléfono',
       register: {
@@ -63,14 +67,39 @@ export default {
         manager: 'Gerente',
         freelancer: 'Trabajador independiente'
       },
+      sex: 'TODO',
+      ssn: 'TODO',
+      state: 'TODO',
+      streetName: 'TODO',
+      streetNumber: 'TODO',
       termsAgreement: 'Estoy de acuerdo con los términos y servicios',
-      zipCode: 'Código Postal'
+      zip: 'Código Postal'
     },
     loginLink: 'Ya tengo cuenta.'
   },
   stats: {
     gigs: 'GIGs',
     workers: 'Trabajadores'
+  },
+  users: {
+    list: {
+      table: {
+        birthday: 'TODO',
+        city: 'TODO',
+        email: 'TODO',
+        firstName: 'TODO',
+        lastName: 'TODO',
+        maritalStatus: 'TODO',
+        phone: 'TODO',
+        sex: 'TODO',
+        ssn: 'SSN',
+        state: 'TODO',
+        streetName: 'TODO',
+        streetNumber: 'TODO',
+        zip: 'TODO'
+      },
+      title: 'TODO'
+    }
   },
   validations: {
     errors: {

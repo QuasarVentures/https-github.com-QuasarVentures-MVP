@@ -42,7 +42,8 @@ export default {
   layout: {
     menu: {
       gigs: 'GIGs',
-      stats: 'Stats'
+      stats: 'Stats',
+      users: 'Users'
     }
   },
   login: {
@@ -57,9 +58,12 @@ export default {
   },
   register: {
     registerForm: {
-      address: 'Address',
+      birthday: 'Birthday',
       city: 'City',
       email: 'Email',
+      firstName: 'First name',
+      lastName: 'Last name',
+      maritalStatus: 'Marital status',
       password: 'Password',
       phone: 'Phone number',
       register: {
@@ -71,14 +75,39 @@ export default {
         manager: 'Manager',
         freelancer: 'Freelancer'
       },
+      sex: 'Sex',
+      ssn: 'SSN',
+      state: 'State',
+      streetName: 'Street name',
+      streetNumber: 'Street number',
       termsAgreement: 'I agree to the terms and services',
-      zipCode: 'Zip code'
+      zip: 'Zip'
     },
     loginLink: 'I already have an account.'
   },
   stats: {
     gigs: 'GIGs',
     workers: 'Workers'
+  },
+  users: {
+    list: {
+      table: {
+        birthday: 'Birthday',
+        city: 'City',
+        email: 'Email',
+        firstName: 'First name',
+        lastName: 'Last name',
+        maritalStatus: 'Marital status',
+        phone: 'Phone number',
+        sex: 'Sex',
+        ssn: 'SSN',
+        state: 'State',
+        streetName: 'Street name',
+        streetNumber: 'Street number',
+        zip: 'Zip'
+      },
+      title: 'Workers'
+    }
   },
   validations: {
     errors: {
