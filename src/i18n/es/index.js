@@ -1,10 +1,40 @@
 export default {
   langLabel: 'es',
   langName: 'Español',
+  gigs: {
+    createEdit: {
+      form: {
+        address: 'Dirección',
+        code: 'Código',
+        endDate: 'Fecha de termino',
+        payment: 'Pago',
+        startDate: 'Fecha de inicio',
+        state: 'Estado'
+      },
+      title: {
+        create: 'Crear un gig nuevo',
+        edit: 'Editar un gig'
+      },
+      save: 'Guardar',
+      update: 'Actualizar'
+    },
+    list: {
+      new: 'Nuevo Gig',
+      table: {
+        code: 'Código',
+        startDate: 'Fecha de inicio',
+        endDate: 'Fecha de termino',
+        address: 'Dirección',
+        state: 'Estado',
+        payment: 'Pago'
+      },
+      title: 'Gigs'
+    }
+  },
   layout: {
     menu: {
       gigs: 'GIGs',
-      profile: 'Perfil'
+      stats: 'Estadísticas'
     }
   },
   login: {
@@ -38,8 +68,13 @@ export default {
     },
     loginLink: 'Ya tengo cuenta.'
   },
+  stats: {
+    gigs: 'GIGs',
+    workers: 'Trabajadores'
+  },
   validations: {
     errors: {
+      dateAfter: 'La fecha "{after}" debe ser posterior a "{before}"',
       email: 'Por favor escribe un correo válido',
       maxLength: 'Por favor escribe máximo {count} letras',
       minLength: 'Por favor escribe al menos {count} letras',
