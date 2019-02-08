@@ -4,9 +4,13 @@ export default {
   data () {
     return {
       columns: [
-        { name: 'code', label: this.$t('gigs.list.table.code'), field: 'code', sortable: true },
+        { name: 'industry', label: this.$t('gigs.list.table.industry'), field: 'industry', sortable: true },
+        { name: 'client', label: this.$t('gigs.list.table.client'), field: 'client', sortable: true },
+        { name: 'job', label: this.$t('gigs.list.table.job'), field: 'job', sortable: true },
         { name: 'startDate', label: this.$t('gigs.list.table.startDate'), field: 'startDate', sortable: true },
+        { name: 'startTime', label: this.$t('gigs.list.table.startTime'), field: 'startTime', sortable: true },
         { name: 'endDate', label: this.$t('gigs.list.table.endDate'), field: 'endDate', sortable: true },
+        { name: 'endTime', label: this.$t('gigs.list.table.endTime'), field: 'endTime', sortable: true },
         { name: 'address', label: this.$t('gigs.list.table.address'), field: 'address', sortable: true },
         { name: 'state', label: this.$t('gigs.list.table.state'), field: 'state', sortable: true },
         { name: 'payment', label: this.$t('gigs.list.table.payment'), field: 'payment', sortable: true },
@@ -45,9 +49,13 @@ q-page.q-ma-md.flex.column.items-end
     :rows-per-page-options="[10, 20, 50]"
   )
     q-tr(slot="body", slot-scope="props", :props="props")
-      q-td(key="code", :props="props") {{ props.row.code }}
+      q-td(key="industry", :props="props") {{ props.row.industry }}
+      q-td(key="client", :props="props") {{ props.row.client }}
+      q-td(key="job", :props="props") {{ props.row.job }}
       q-td(key="startDate", :props="props") {{ props.row.startDate }}
+      q-td(key="startTime", :props="props") {{ props.row.startTime }}
       q-td(key="endDate", :props="props") {{ props.row.endDate }}
+      q-td(key="endTime", :props="props") {{ props.row.endTime }}
       q-td(key="address", :props="props") {{ props.row.address }}
       q-td(key="state", :props="props") {{ props.row.state }}
       q-td(key="payment", :props="props") {{ props.row.payment }}
