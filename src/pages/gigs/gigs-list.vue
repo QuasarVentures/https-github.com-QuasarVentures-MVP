@@ -1,4 +1,6 @@
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'gigs-list',
   data () {
@@ -14,12 +16,14 @@ export default {
         { name: 'address', label: this.$t('gigs.list.table.address'), field: 'address', sortable: true },
         { name: 'state', label: this.$t('gigs.list.table.state'), field: 'state', sortable: true },
         { name: 'payment', label: this.$t('gigs.list.table.payment'), field: 'payment', sortable: true },
+        { name: 'worker', label: this.$t('gigs.list.table.assigned'), field: 'worker', align: 'center' },
         { name: 'actions', label: '', field: '_id', sortable: false }
       ],
       gigs: []
     }
   },
   async mounted () {
+    // TODO state filter
     this.gigs = (await this.$gigsdb.allDocs({
       include_docs: true
     })).rows.filter(r => !r.doc.views).map(r => r.doc)
@@ -29,7 +33,38 @@ export default {
       await this.$gigsdb.remove(id, rev)
       const idx = this.gigs.findIndex(d => d._id === id)
       this.gigs = [...this.gigs.slice(0, idx), ...this.gigs.slice(idx + 1)]
+    },
+    async assignGig (_id, idx) {
+      const obj = await this.$gigsdb.get(_id)
+      obj.worker = this.user.email
+      const result = await this.$gigsdb.put({
+        _id,
+        _rev: obj._rev,
+        ...obj
+      })
+      if (result.ok) {
+        obj._rev = result.rev
+        console.log(obj)
+        this.gigs = [...this.gigs.slice(0, idx), obj, ...this.gigs.slice(idx + 1)]
+      }
+    },
+    async unassignGig (_id, idx) {
+      const obj = await this.$gigsdb.get(_id)
+      obj.worker = null
+      const result = await this.$gigsdb.put({
+        _id,
+        _rev: obj._rev,
+        ...obj
+      })
+      if (result.ok) {
+        obj._rev = result.rev
+        console.log(obj)
+        this.gigs = [...this.gigs.slice(0, idx), obj, ...this.gigs.slice(idx + 1)]
+      }
     }
+  },
+  computed: {
+    ...mapGetters('user', ['user'])
   }
 }
 </script>
@@ -37,6 +72,7 @@ export default {
 <template lang="pug">
 q-page.q-ma-md.flex.column.items-end
   q-btn.q-mb-md(
+    v-if="user.role === 'manager'"
     color="primary"
     :label="$t('gigs.list.new')"
     :to="{ path: '/gigs/create' }"
@@ -59,8 +95,13 @@ q-page.q-ma-md.flex.column.items-end
       q-td(key="address", :props="props") {{ props.row.address }}
       q-td(key="state", :props="props") {{ props.row.state }}
       q-td(key="payment", :props="props") {{ props.row.payment }}
+      q-td(key="worker", :props="props")
+        q-icon(v-if="props.row.worker", name="account_box", color="green", size="24px")
+          q-tooltip
+           | {{ props.row.worker }}
       q-td(key="actions", :props="props")
         q-btn(
+          v-if="user.role === 'manager'"
           color="primary"
           icon="edit"
           :to="{ path: `/gigs/${props.row._id}/edit` }"
@@ -68,11 +109,28 @@ q-page.q-ma-md.flex.column.items-end
           flat
         )
         q-btn(
+          v-if="user.role === 'manager'"
           color="red"
           icon="delete"
           dense
           flat
           @click.native="() => deleteGig(props.row._id, props.row._rev)"
+        )
+        q-btn(
+          v-if="user.role === 'freelancer' && props.row.worker === null"
+          color="primary"
+          icon="turned_in_not"
+          dense
+          flat
+          @click.native="() => assignGig(props.row._id, props.row.__index)"
+        )
+        q-btn(
+          v-if="user.role === 'freelancer' && props.row.worker === user.email"
+          color="primary"
+          icon="turned_in"
+          dense
+          flat
+          @click.native="() => unassignGig(props.row._id, props.row.__index)"
         )
 </template>
 

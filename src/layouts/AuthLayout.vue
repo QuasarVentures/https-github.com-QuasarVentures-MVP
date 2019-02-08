@@ -41,7 +41,7 @@ export default {
           flat
         )
         q-btn(
-          v-if="user.role === 'manager'"
+          v-if="user.role === 'manager' || user.role === 'freelancer'"
           :to="{ path: '/gigs' }"
           :label="$t('layout.menu.gigs')"
           icon="work"
