@@ -29,7 +29,7 @@ export default async ({ Vue }) => {
         zip: '77550',
         ssn: '727-999-0973',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '409-772-7782'
       },
       {
@@ -47,7 +47,7 @@ export default async ({ Vue }) => {
         zip: '45783',
         ssn: '563-12-3425',
         sex: 'M',
-        martialStatus: 'S',
+        maritalStatus: 'S',
         phone: '727-999-0974'
       },
       {
@@ -65,7 +65,7 @@ export default async ({ Vue }) => {
         zip: '45332',
         ssn: '503-21-8932',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '555-234-2356'
       },
       {
@@ -83,7 +83,7 @@ export default async ({ Vue }) => {
         zip: '45678',
         ssn: '503-45-2255',
         sex: 'M',
-        martialStatus: 'S',
+        maritalStatus: 'S',
         phone: '111-453-0987'
       },
       {
@@ -101,7 +101,7 @@ export default async ({ Vue }) => {
         zip: '45345',
         ssn: '334-44-3465',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '866-567-9807'
       },
       {
@@ -119,7 +119,7 @@ export default async ({ Vue }) => {
         zip: '45332',
         ssn: '589-32-5482',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '555-754-9802'
       },
       {
@@ -137,7 +137,7 @@ export default async ({ Vue }) => {
         zip: '45321',
         ssn: '654-43-0990',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '532-099-0993'
       },
       {
@@ -155,7 +155,7 @@ export default async ({ Vue }) => {
         zip: '45337',
         ssn: '599-43-9119',
         sex: 'M',
-        martialStatus: 'S',
+        maritalStatus: 'S',
         phone: '423-666-9322'
       },
       {
@@ -173,7 +173,7 @@ export default async ({ Vue }) => {
         zip: '45665',
         ssn: '644-22-0900',
         sex: 'M',
-        martialStatus: 'S',
+        maritalStatus: 'S',
         phone: '432-909-1121'
       },
       {
@@ -191,7 +191,7 @@ export default async ({ Vue }) => {
         zip: '46656',
         ssn: '813-99-0923',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '872-124-5543'
       },
       {
@@ -209,7 +209,7 @@ export default async ({ Vue }) => {
         zip: '44321',
         ssn: '782-44-3212',
         sex: 'M',
-        martialStatus: 'M',
+        maritalStatus: 'M',
         phone: '654-987-3422'
       }
     ])

@@ -34,7 +34,8 @@ export default {
   layout: {
     menu: {
       gigs: 'GIGs',
-      stats: 'Estadísticas'
+      stats: 'Estadísticas',
+      users: 'TODO'
     }
   },
   login: {
@@ -79,6 +80,26 @@ export default {
   stats: {
     gigs: 'GIGs',
     workers: 'Trabajadores'
+  },
+  users: {
+    list: {
+      table: {
+        birthday: 'TODO',
+        city: 'TODO',
+        email: 'TODO',
+        firstName: 'TODO',
+        lastName: 'TODO',
+        maritalStatus: 'TODO',
+        phone: 'TODO',
+        sex: 'TODO',
+        ssn: 'SSN',
+        state: 'TODO',
+        streetName: 'TODO',
+        streetNumber: 'TODO',
+        zip: 'TODO'
+      },
+      title: 'TODO'
+    }
   },
   validations: {
     errors: {
