@@ -52,6 +52,10 @@ export default {
         }
       }
       this.submitting = false
+    },
+    login (type) {
+      this.loginForm.email = `${type.email}@email.com`
+      this.loginForm.password = 'password'
     }
   }
 }
@@ -95,6 +99,12 @@ q-page.flex.flex-center
     q-separator
     q-card-section
       router-link(to="/register") {{$t('login.registerLink')}}
+    q-card-section
+      q-bar
+        q-btn(flat, dense, @click="login('admin')" label="Admin")
+        q-btn(flat, dense, @click="login('manager')" label="Manager")
+        q-btn(flat, dense, @click="login('freelancer')" label="Admin")
+
 </template>
 
 <style lang="stylus">
