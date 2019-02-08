@@ -25,6 +25,7 @@ export default {
     list: {
       new: 'New Gig',
       table: {
+        assigned: 'Assigned',
         industry: 'Industry',
         client: 'Client',
         job: 'Job',

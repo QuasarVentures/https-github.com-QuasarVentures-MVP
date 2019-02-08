@@ -21,6 +21,7 @@ export default {
     list: {
       new: 'Nuevo Gig',
       table: {
+        assigned: 'TODO',
         code: 'Código',
         startDate: 'Fecha de inicio',
         endDate: 'Fecha de termino',
