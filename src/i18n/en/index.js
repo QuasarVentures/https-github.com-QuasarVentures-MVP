@@ -5,10 +5,14 @@ export default {
     createEdit: {
       form: {
         address: 'Address',
-        code: 'Code',
+        industry: 'Industry',
+        client: 'Client',
+        job: 'Job',
         endDate: 'End date',
+        endTime: 'End time',
         payment: 'Payment',
         startDate: 'Start date',
+        startTime: 'Start time',
         state: 'State'
       },
       title: {
@@ -21,9 +25,13 @@ export default {
     list: {
       new: 'New Gig',
       table: {
-        code: 'Code',
+        industry: 'Industry',
+        client: 'Client',
+        job: 'Job',
         startDate: 'Start date',
+        startTime: 'Start time',
         endDate: 'End date',
+        endTime: 'End time',
         address: 'Address',
         state: 'State',
         payment: 'Payment'

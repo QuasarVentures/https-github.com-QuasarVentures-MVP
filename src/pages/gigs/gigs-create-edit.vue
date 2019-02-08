@@ -8,18 +8,24 @@ export default {
       gigForm: {
         _id: null,
         address: '',
-        code: '',
+        industry: '',
+        client: '',
+        job: '',
         endDate: null,
+        endTime: null,
         payment: '',
         startDate: null,
+        startTime: null,
         state: ''
       },
       validations: {
         address: [val => !!val || this.$t('validations.errors.required')],
-        code: [val => !!val || this.$t('validations.errors.required')],
+        industry: [val => !!val || this.$t('validations.errors.required')],
+        client: [val => !!val || this.$t('validations.errors.required')],
+        job: [val => !!val || this.$t('validations.errors.required')],
         endDate: [
           val => !!val || this.$t('validations.errors.required'),
-          val => isAfter(val, this.gigForm.startDate) || this.$t('validations.errors.dateAfter', { before: this.$t('gigs.createEdit.form.startDate'), after: this.$t('gigs.createEdit.form.endDate') })
+          val => (isAfter(val, this.gigForm.startDate) || val === this.gigForm.startDate) || this.$t('validations.errors.dateAfter', { before: this.$t('gigs.createEdit.form.startDate'), after: this.$t('gigs.createEdit.form.endDate') })
         ],
         payment: [val => !!val || this.$t('validations.errors.required')],
         startDate: [val => !!val || this.$t('validations.errors.required')],
@@ -70,14 +76,31 @@ q-page.flex.flex-center.column
   h4 {{$t(`gigs.createEdit.title.${gigForm._id === null ? 'create' : 'edit'}`)}}
   q-card.gig-form
     q-card-section
-      q-select(
-        ref="code"
-        v-model="gigForm.code",
+      q-input(
+        ref="industry"
+        v-model="gigForm.industry"
         stack-label
-        :label="$t('gigs.createEdit.form.code')"
-        :options="[{value: '0110-Wheat', label: '0110 Wheat'}]"
-        emit-value
-        :rules="validations.code"
+        :label="$t('gigs.createEdit.form.industry')"
+        autogrow
+        :rules="validations.industry"
+        lazy-rules
+      )
+      q-input(
+        ref="client"
+        v-model="gigForm.client"
+        stack-label
+        :label="$t('gigs.createEdit.form.client')"
+        autogrow
+        :rules="validations.client"
+        lazy-rules
+      )
+      q-input(
+        ref="job"
+        v-model="gigForm.job"
+        stack-label
+        :label="$t('gigs.createEdit.form.job')"
+        autogrow
+        :rules="validations.job"
         lazy-rules
       )
       .row.q-col-gutter-sm
@@ -93,13 +116,34 @@ q-page.flex.flex-center.column
           )
         .col-md-6
           q-input(
-            ref="endDate"
-            v-model="gigForm.endDate"
+            ref="startTime"
+            v-model="gigForm.startTime"
             stack-label
-            :label="$t('gigs.createEdit.form.endDate')"
-            type="date"
-            :rules="validations.endDate"
+            :label="$t('gigs.createEdit.form.startTime')"
+            type="time"
+            :rules="validations.startTime"
             lazy-rules
+          )
+      .row.q-col-gutter-sm
+        .col-md-6
+          q-input(
+          ref="endDate"
+          v-model="gigForm.endDate"
+          stack-label
+          :label="$t('gigs.createEdit.form.endDate')"
+          type="date"
+          :rules="validations.endDate"
+          lazy-rules
+          )
+        .col-md-6
+          q-input(
+          ref="endTime"
+          v-model="gigForm.endTime"
+          stack-label
+          :label="$t('gigs.createEdit.form.endTime')"
+          type="time"
+          :rules="validations.endTime"
+          lazy-rules
           )
       q-input(
         ref="address"
@@ -115,7 +159,7 @@ q-page.flex.flex-center.column
         v-model="gigForm.state",
         stack-label
         :label="$t('gigs.createEdit.form.state')"
-        :options="[{value: 'CA', label: 'California'}, { value: 'TX', label: 'Texas'}]"
+        :options="[{value: 'California', label: 'California'}, { value: 'Texas', label: 'Texas'}]"
         emit-value
         :rules="validations.state"
         lazy-rules
