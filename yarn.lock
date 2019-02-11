@@ -6914,10 +6914,10 @@ qs@6.5.2, qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-quasar@^1.0.0-beta.0:
-  version "1.0.0-beta.0"
-  resolved "https://registry.npmjs.org/quasar/-/quasar-1.0.0-beta.0.tgz#bc085f3de825280fd622307d4b6e8b01a36c0839"
-  integrity sha512-MuRURzsrtLUQpwE+yMGyOf6CrJtqCk6/6TpD0BwMDfpuQkgHorJgKNkYUubsKr3Z9F8jBPyYvp+XAMq124erXA==
+quasar@^1.0.0-beta.1:
+  version "1.0.0-beta.1"
+  resolved "https://registry.npmjs.org/quasar/-/quasar-1.0.0-beta.1.tgz#c75aaa82c0dcbf847b5754cbdd95e4817ba59894"
+  integrity sha512-TU3GeV/LjtteqInEdCkT2SPhjDhFdN+0EL0S1kgkO/I91FabpA1A6JGk+IGKCxsrZ5QcKPFCm0y/PbnwHjKFDA==
 
 querystring-es3@^0.2.0:
   version "0.2.1"
