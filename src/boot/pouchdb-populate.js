@@ -16,6 +16,7 @@ export default async ({ Vue }) => {
       },
       {
         _id: 'freelancer@email.com',
+        rating: 5,
         role: 'freelancer',
         email: 'freelancer@email.com',
         birthday: '1991-05-02',
@@ -30,10 +31,12 @@ export default async ({ Vue }) => {
         ssn: '727-999-0973',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '409-772-7782'
+        phone: '409-772-7782',
+        policies: ['AFLAC', 'GIGGUARD', 'WORKCOMP']
       },
       {
         _id: 'dorance.armstrong@email.com',
+        rating: 5,
         role: 'freelancer',
         email: 'dorance.armstrong@email.com',
         birthday: '1991-05-02',
@@ -48,10 +51,12 @@ export default async ({ Vue }) => {
         ssn: '563-12-3425',
         sex: 'M',
         maritalStatus: 'S',
-        phone: '727-999-0974'
+        phone: '727-999-0974',
+        policies: ['WORKCOMP']
       },
       {
         _id: 'austin.tavon@email.com',
+        rating: 5,
         role: 'freelancer',
         email: 'austin.tavon@email.com',
         birthday: '1991-05-02',
@@ -66,10 +71,13 @@ export default async ({ Vue }) => {
         ssn: '503-21-8932',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '555-234-2356'
+        phone: '555-234-2356',
+        policies: ['AFLAC']
+
       },
       {
         _id: 'awuzie.chidobe@email.com',
+        rating: 2,
         role: 'freelancer',
         email: 'awuzie.chidobe@email.com',
         birthday: '1991-05-02',
@@ -84,10 +92,12 @@ export default async ({ Vue }) => {
         ssn: '503-45-2255',
         sex: 'M',
         maritalStatus: 'S',
-        phone: '111-453-0987'
+        phone: '111-453-0987',
+        policies: ['AFLAC']
       },
       {
         _id: 'beasley.cole@email.com',
+        rating: 4,
         role: 'freelancer',
         email: 'beasley.cole@email.com',
         birthday: '1991-05-02',
@@ -102,10 +112,12 @@ export default async ({ Vue }) => {
         ssn: '334-44-3465',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '866-567-9807'
+        phone: '866-567-9807',
+        policies: ['AFLAC']
       },
       {
         _id: 'anthony.brown@email.com',
+        rating: 1,
         role: 'freelancer',
         email: 'anthony.brown@email.com',
         birthday: '1991-05-02',
@@ -120,10 +132,12 @@ export default async ({ Vue }) => {
         ssn: '589-32-5482',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '555-754-9802'
+        phone: '555-754-9802',
+        policies: ['AFLAC', 'GIGGUARD', 'WORKCOMP']
       },
       {
         _id: 'noah.brown@email.com',
+        rating: 3,
         role: 'freelancer',
         email: 'noah.brown@email.com',
         birthday: '1991-05-02',
@@ -138,10 +152,12 @@ export default async ({ Vue }) => {
         ssn: '654-43-0990',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '532-099-0993'
+        phone: '532-099-0993',
+        policies: ['AFLAC', 'GIGGUARD', 'WORKCOMP']
       },
       {
         _id: 'taco.charlton@email.com',
+        rating: 4,
         role: 'freelancer',
         email: 'taco.charlton@email.com',
         birthday: '1991-05-02',
@@ -156,10 +172,12 @@ export default async ({ Vue }) => {
         ssn: '599-43-9119',
         sex: 'M',
         maritalStatus: 'S',
-        phone: '423-666-9322'
+        phone: '423-666-9322',
+        policies: ['AFLAC']
       },
       {
         _id: 'lael.collins@email.com',
+        rating: 2,
         role: 'freelancer',
         email: 'lael.collins@email.com',
         birthday: '1991-05-02',
@@ -174,10 +192,12 @@ export default async ({ Vue }) => {
         ssn: '644-22-0900',
         sex: 'M',
         maritalStatus: 'S',
-        phone: '432-909-1121'
+        phone: '432-909-1121',
+        policies: ['AFLAC', 'GIGGUARD', 'WORKCOMP']
       },
       {
         _id: 'maliek.collins@email.com',
+        rating: 4,
         role: 'freelancer',
         email: 'maliek.collins@email.com',
         birthday: '1991-05-02',
@@ -192,10 +212,12 @@ export default async ({ Vue }) => {
         ssn: '813-99-0923',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '872-124-5543'
+        phone: '872-124-5543',
+        policies: ['AFLAC', 'WORKCOMP']
       },
       {
         _id: 'amari.cooper@email.com',
+        rating: 3,
         role: 'freelancer',
         email: 'amari.cooper@email.com',
         birthday: '1991-05-02',
@@ -210,7 +232,8 @@ export default async ({ Vue }) => {
         ssn: '782-44-3212',
         sex: 'M',
         maritalStatus: 'M',
-        phone: '654-987-3422'
+        phone: '654-987-3422',
+        policies: ['AFLAC', 'GIGGUARD', 'WORKCOMP']
       }
     ])
   } catch (e) {

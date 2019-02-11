@@ -11,6 +11,7 @@ export default {
       name: false,
       message: '',
       columns: [
+        { name: 'rating', label: this.$t('users.list.table.rating'), field: 'rating', sortable: true },
         { name: 'firstName', label: this.$t('users.list.table.firstName'), field: 'firstName', sortable: true },
         { name: 'lastName', label: this.$t('users.list.table.lastName'), field: 'lastName', sortable: true },
         // { name: 'email', label: this.$t('users.list.table.email'), field: 'email', sortable: true },
@@ -19,7 +20,7 @@ export default {
         { name: 'city', label: this.$t('users.list.table.city'), field: 'city', sortable: true },
         // { name: 'zip', label: this.$t('users.list.table.zip'), field: 'zip', sortable: true },
         { name: 'state', label: this.$t('users.list.table.state'), field: 'state', sortable: true },
-        { name: 'sex', label: this.$t('users.list.table.sex'), field: 'sex', sortable: true },
+        { name: 'policies', label: this.$t('users.list.table.policies'), field: 'policies', sortable: false },
         // { name: 'maritalStatus', label: this.$t('users.list.table.maritalStatus'), field: 'maritalStatus', sortable: true },
         { name: 'actions', label: '', field: '_id', sortable: false }
         // { name: 'phone', label: this.$t('users.list.table.phone'), field: 'phone', sortable: true }
@@ -68,16 +69,28 @@ q-page.q-ma-md.flex.flex-center
     dense
   )
     q-tr(slot="body", slot-scope="props", :props="props")
+      q-td(key="firstName", :props="props")
+        q-rating(v-model="props.row.rating" size="1.5em" color="blue-grey-9")
       q-td(key="firstName", :props="props") {{ props.row.firstName }}
       q-td(key="lastName", :props="props") {{ props.row.lastName }}
       q-td(key="city", :props="props") {{ props.row.city }}
       q-td(key="state", :props="props") {{ props.row.state }}
-      q-td(key="sex", :props="props") {{ $t(`profile.sex.${props.row.sex}`) }}
+      q-td(key="policies", :props="props")
+        q-badge.q-mr-sm(v-for="policy in props.row.policies" :label="policy" :key="policy.id")
+      // q-td(key="sex", :props="props") {{ $t(`profile.sex.${props.row.sex}`) }}
       q-td(key="actions", :props="props")
         q-btn(
           v-if="user.role === 'manager'"
           color="primary"
           icon="mail"
+          dense
+          flat
+          @click.native="() => sendMail(props.row.email, props.row.firstName)"
+        )
+        q-btn(
+          v-if="user.role === 'manager'"
+          color="green"
+          icon="phone"
           dense
           flat
           @click.native="() => sendMail(props.row.email, props.row.firstName)"

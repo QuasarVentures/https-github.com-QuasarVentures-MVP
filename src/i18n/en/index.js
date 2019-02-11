@@ -127,7 +127,9 @@ export default {
         state: 'State',
         streetName: 'Street name',
         streetNumber: 'Street number',
-        zip: 'Zip'
+        zip: 'Zip',
+        policies: 'Policies',
+        rating: 'Rating'
       },
       title: 'Workers'
     }

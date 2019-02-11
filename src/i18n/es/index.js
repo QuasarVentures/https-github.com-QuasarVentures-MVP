@@ -112,7 +112,9 @@ export default {
         state: 'Estado',
         streetName: 'Calle',
         streetNumber: 'Número',
-        zip: 'Código postal'
+        zip: 'Código postal',
+        policies: 'Pólizas',
+        rating: 'Índice'
       },
       title: 'Trabajadores'
     }

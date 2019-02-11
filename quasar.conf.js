@@ -59,6 +59,8 @@ module.exports = function (ctx) {
     // framework: 'all' --- includes everything; for dev only!
     framework: {
       components: [
+        'QAvatar',
+        'QBadge',
         'QBar',
         'QBtn',
         'QCard',
@@ -80,6 +82,7 @@ module.exports = function (ctx) {
         'QPage',
         'QPageContainer',
         'QPopupProxy',
+        'QRating',
         'QScrollArea',
         'QSelect',
         'QSeparator',
